@@ -4,7 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
-public class AddEmployee1 {
+public class AddEmployee {
 	
 	@FindBy(how =How.XPATH, using = "//*[@id=\"menu_admin_viewAdminModule\"]/b")
 	public static WebElement adminPanel;
