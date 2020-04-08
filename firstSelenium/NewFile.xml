@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Test Suite" verbose="2">
+<test name= "Grouping">
+
+<groups>
+<run>
+
+<include name ="Vivo"></include>
+<include name= "Oppo"></include>
+
+</run>
+</groups>
+<classes>
+<class name="firstSelenium.PhoneGroup"></class>
+</classes>
+</test></suite>
