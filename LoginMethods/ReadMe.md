@@ -1,1 +1,1 @@
-Different Methods to login to orangeHRM using Selenium
+Different testcases and methods using Selenium
