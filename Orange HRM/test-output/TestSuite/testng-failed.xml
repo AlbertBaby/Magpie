@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [TestSuite]">
+  <test name="Orange Tests(failed)">
+    <classes>
+      <class name="testCases.Fastest">
+        <methods>
+          <include name="testSetup"/>
+          <include name="finalSetup"/>
+          <include name="initialSetup"/>
+          <include name="test1" invocation-numbers="1 2 3"/>
+        </methods>
+      </class> <!-- testCases.Fastest -->
+    </classes>
+  </test> <!-- Orange Tests(failed) -->
+</suite> <!-- Failed suite [TestSuite] -->

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="TestSuite" verbose="2">
+
+	<test name="Both Valid Testcases">
+	<parameter name="usrname" value="Admin"></parameter>
+	<parameter name="pssword" value="admin123"></parameter> 
+		<classes>
+			<class name="testCases.BothValid"></class>
+		</classes>
+	</test>
+
+	<test name="Both Invalid Testcases">
+	<parameter name="usrname" value="ADmin"></parameter>
+	<parameter name="pssword" value="ADmin123"></parameter> 
+		<classes>
+			<class name="testCases.BothInvalid"></class>
+		</classes>
+	</test>
+
+	<test name="Only valid username">
+	<parameter name="usrname" value="Admin"></parameter>
+	<parameter name="pssword" value="Admin123"></parameter> 
+		<classes>
+			<class name="testCases.ValidUsername"></class>
+		</classes>
+	</test>
+
+	<test name="Only valid password">
+	<parameter name="usrname" value="ADmin"></parameter>
+	<parameter name="pssword" value="admin123"></parameter> 
+		<classes>
+			<class name="testCases.ValidPassword"></class>
+		</classes>
+	</test>
+</suite>
