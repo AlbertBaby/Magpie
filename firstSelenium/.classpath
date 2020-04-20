@@ -7,5 +7,6 @@
 	<classpathentry kind="lib" path="C:/Users/CYBERWORLD/Downloads/Compressed/client-combined-3.141.59-sources.jar"/>
 	<classpathentry kind="con" path="org.testng.TESTNG_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="lib" path="D:/Temp/apache-log4j-1.2.17/log4j-1.2.17.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

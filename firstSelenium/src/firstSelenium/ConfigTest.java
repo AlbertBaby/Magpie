@@ -19,12 +19,16 @@ public class ConfigTest {
 		
 		String browser=prop.getProperty("browser");
 		String driverLocation=prop.getProperty("driverLocation");
-		if (browser.equals("chrome")) {
+		
+		if (browser.equalsIgnoreCase("chrome")) {
 			System.setProperty("webdriver.chrome.driver",driverLocation );
 			driver= new ChromeDriver();
 			
-		} else {
+		} else if(browser.equalsIgnoreCase("firefox")) {
 			System.out.println("Other browsers not supported");
+		}
+		else {
+			System.out.println("Browser not found");
 		}
 		
 		driver.navigate().to("http://google.co.in/");
