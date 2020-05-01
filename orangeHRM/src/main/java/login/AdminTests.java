@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Iterator;
+import java.util.Properties;
+
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFRow;
@@ -21,14 +23,19 @@ import objectsRepository.AdminPageObjects;
 
 public class AdminTests {
 
-	public XSSFRow row;
-	public String datas;
+	public static XSSFRow row;
+	public static String datas = null;
 
 	@Test
 	public void adminPage(WebDriver driver) throws IOException, InterruptedException {
-		//LoginAndImg obj=new LoginAndImg();
-		//		WebDriver driver=obj.driver;
+		
+		FileInputStream path = new FileInputStream("config.properties");
+		Properties prop = new Properties();
+		prop.load(path);
 
+		String col = prop.getProperty("JobDetailsCol"),excelPath=prop.getProperty("ExcelPath");
+		int colIndex=Integer.parseInt(col);
+		
 		PageFactory.initElements(driver, AdminPageObjects.class);
 		AdminPageObjects.adminBtn.click();
 		AdminPageObjects.nameBox.sendKeys("John Smith");
@@ -46,9 +53,22 @@ public class AdminTests {
 		AdminPageObjects.addUser.click();
 
 		select.selectByVisibleText("Admin");
+		
+		File src= new File(excelPath);
+		
+		FileInputStream getBookPath=new FileInputStream(src);
 
-		AdminTests forExcel=new AdminTests();
-		forExcel.setExcel(0);
+		XSSFWorkbook excelBook= new XSSFWorkbook(getBookPath);
+
+		XSSFSheet sheet1=excelBook.getSheetAt(0);
+		Iterator<Row>  rowIterator = sheet1.iterator();
+
+		String name=getExcelData(rowIterator,colIndex),uName=getExcelData(rowIterator, colIndex),
+				status=getExcelData(rowIterator, colIndex),passWord=getExcelData(rowIterator, colIndex),
+				confPass=getExcelData(rowIterator, colIndex);
+		/*
+		 * AdminTests forExcel=new AdminTests(); forExcel.setExcel(1);
+		 */
 		System.out.println(name+uName+status+passWord+confPass);
 		
 		AdminPageObjects.empName.sendKeys(name);
@@ -64,30 +84,31 @@ public class AdminTests {
 		excelBook.close();
 	}
 	
-	public String name,uName,status,passWord,confPass;
-	public XSSFWorkbook excelBook;
-	
-	public void setExcel(int colInex) throws IOException {
-		File src= new File("D:\\Temp\\MFRPAddUser.xlsx");
+	/*
+	 * public String name,uName,status,passWord,confPass; public XSSFWorkbook
+	 * excelBook;
+	 * 
+	 * public void setExcel(int colInex) throws IOException { File src= new
+	 * File("D:\\Temp\\MFRPAddUser.xlsx");
+	 * 
+	 * FileInputStream getBookPath=new FileInputStream(src);
+	 * 
+	 * excelBook= new XSSFWorkbook(getBookPath);
+	 * 
+	 * XSSFSheet sheet1=excelBook.getSheetAt(0); Iterator<Row> rowIterator =
+	 * sheet1.iterator();
+	 * 
+	 * name =getExcelData(rowIterator,colInex);
+	 * uName=getExcelData(rowIterator,colInex);
+	 * status=getExcelData(rowIterator,colInex);
+	 * passWord=getExcelData(rowIterator,colInex);
+	 * confPass=getExcelData(rowIterator,colInex); excelBook.close();
+	 * 
+	 * }
+	 */
 
-		FileInputStream getBookPath=new FileInputStream(src);
 
-		excelBook= new XSSFWorkbook(getBookPath);
-
-		XSSFSheet sheet1=excelBook.getSheetAt(0);
-		Iterator<Row>  rowIterator = sheet1.iterator();
-
-		name =getExcelData(rowIterator,colInex);
-		uName=getExcelData(rowIterator,colInex);
-		status=getExcelData(rowIterator,colInex);
-		passWord=getExcelData(rowIterator,colInex);
-		confPass=getExcelData(rowIterator,colInex);
-		excelBook.close();
-
-	}
-
-
-	public String getExcelData(Iterator<Row> rowIterator, int colIndex) throws IOException {
+	public String getExcelData(Iterator<Row> rowIterator,int colIndex) throws IOException {
 
 		row = (XSSFRow) rowIterator.next();
 		Cell cell = row.getCell(colIndex);

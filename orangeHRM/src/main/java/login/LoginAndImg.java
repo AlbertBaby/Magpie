@@ -55,14 +55,13 @@ public class LoginAndImg {
 		else
 			logger.info("Logo Image is not broken");
 
-		AdminTests logIn=new AdminTests(); 
-		logIn.adminPage(driver);
-		
-		TestOnJob into=new TestOnJob();
-		into.jobTitles(driver);
-		
-		AddEmployee pim=new AddEmployee();
-		pim.employeeDetails(driver);
+		/*
+		 * AdminTests logIn=new AdminTests(); logIn.adminPage(driver);
+		 * 
+		 * TestOnJob into=new TestOnJob(); into.jobTitles(driver);
+		 * 
+		 * AddEmployee pim=new AddEmployee(); pim.employeeDetails(driver);
+		 */
 		
 		Candidates cand=new Candidates();
 		cand.employeeDetails(driver);

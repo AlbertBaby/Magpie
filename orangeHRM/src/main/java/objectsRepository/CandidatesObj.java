@@ -11,7 +11,7 @@ public class CandidatesObj {
 	@FindBy(how =How.XPATH, using = "//b[text()=\"Recruitment\"]")
 	public static WebElement recruitmentbtn;
 	
-	@FindBy(id = "firstName")
+	@FindBy(id = "addCandidate_firstName")
 	public static WebElement userNamE;
 	
 	@FindBy(id = "addCandidate_email")

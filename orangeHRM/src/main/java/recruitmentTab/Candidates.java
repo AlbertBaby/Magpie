@@ -11,8 +11,10 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.Iterator;
 import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -32,7 +34,7 @@ public class Candidates {
 	public static String datas = null;
 
 	@Test
-	public void employeeDetails(WebDriver driver) throws AWTException, IOException {
+	public void employeeDetails(WebDriver driver) throws AWTException, IOException, InterruptedException {
 		
 
 		FileInputStream path = new FileInputStream("config.properties");
@@ -73,7 +75,8 @@ public class Candidates {
 
 		Actions act =new Actions(driver);
 		act.click(CandidatesObj.addResume).build().perform();
-
+		//driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		
 		StringSelection stringSelection = new StringSelection(resumePath);
 		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection,null);
 		Robot robo = new Robot();
@@ -98,6 +101,10 @@ public class Candidates {
 
 		row = (XSSFRow) rowIterator.next();
 		Cell cell = row.getCell(colIndex);
+	
+		cell.setCellType(CellType.STRING);
+        String data0= cell.getStringCellValue();
+
 		datas=cell.getStringCellValue();
 		return datas;
 	}
