@@ -49,6 +49,7 @@ public class AdminTests {
 
 		AdminTests forExcel=new AdminTests();
 		forExcel.setExcel(0);
+		System.out.println(name+uName+status+passWord+confPass);
 		
 		AdminPageObjects.empName.sendKeys(name);
 		AdminPageObjects.userName.sendKeys(uName);

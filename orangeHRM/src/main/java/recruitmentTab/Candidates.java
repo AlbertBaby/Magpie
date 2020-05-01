@@ -91,6 +91,7 @@ public class Candidates {
 
 		act.click(CandidatesObj.consentCheckBox).build().perform();
 		excelBook.close();
+		CandidatesObj.saveBtn.click();
 	}
 
 	public String getExcelData(Iterator<Row> rowIterator,int colIndex) throws IOException {

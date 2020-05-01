@@ -37,5 +37,8 @@ public class CandidatesObj {
 	
 	@FindBy(id = "addCandidate_consentToKeepData")
 	public static WebElement consentCheckBox;
+	
+	@FindBy(id = "btnSave" )
+	public static WebElement saveBtn;
 
 }
