@@ -15,6 +15,7 @@ import org.testng.annotations.Test;
 
 import objectsRepository.LoginPageObjects;
 import pimTab.AddEmployee;
+import recruitmentTab.Candidates;
 
 public class LoginAndImg {
 
@@ -53,17 +54,18 @@ public class LoginAndImg {
 			logger.info("Logo Image is broken");
 		else
 			logger.info("Logo Image is not broken");
-/*
+
 		AdminTests logIn=new AdminTests(); 
 		logIn.adminPage(driver);
 		
 		TestOnJob into=new TestOnJob();
 		into.jobTitles(driver);
-		*/
-		driver.findElement(By.xpath("//b[text()=\"PIM\"]")).click();
 		
 		AddEmployee pim=new AddEmployee();
 		pim.employeeDetails(driver);
+		
+		Candidates cand=new Candidates();
+		cand.employeeDetails(driver);
 
 	}
 

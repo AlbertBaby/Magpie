@@ -13,21 +13,23 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
-import objectsRepository.AddUser;
+import objectsRepository.AddUserObj;
 
 public class AddEmployee {
 	
 	@Test
 	public void employeeDetails(WebDriver driver) throws AWTException {
 		
-		PageFactory.initElements(driver, AddUser.class);
-		AddUser.addUseR.click();
-		AddUser.userNamE.sendKeys("Sagar"+Keys.TAB+"Alias"+Keys.TAB+"Jacky");
-		AddUser.employeeID.clear();
-		AddUser.employeeID.sendKeys("2211");
+		PageFactory.initElements(driver, AddUserObj.class);
+		
+		AddUserObj.PIMbtn.click();
+		AddUserObj.addUseR.click();
+		AddUserObj.userNamE.sendKeys("Sagar"+Keys.TAB+"Alias"+Keys.TAB+"Jacky");
+		AddUserObj.employeeID.clear();
+		AddUserObj.employeeID.sendKeys("2211");
 		
 		Actions act=new Actions(driver);
-		act.click(AddUser.uploadPhoto).build().perform();
+		act.click(AddUserObj.uploadPhoto).build().perform();
 
 		String path="D:\\Temp\\MyPhoto.png";
 		StringSelection stringSelection = new StringSelection(path);
@@ -35,21 +37,21 @@ public class AddEmployee {
 		Robot robo = new Robot();
 		robo.keyPress(KeyEvent.VK_CONTROL);
 		robo.keyPress(KeyEvent.VK_V);
-		robo.keyRelease(KeyEvent.VK_CONTROL);
+		
 		robo.keyRelease(KeyEvent.VK_V);
+		robo.keyRelease(KeyEvent.VK_CONTROL);
 		robo.keyPress(KeyEvent.VK_ENTER);
 		robo.keyRelease(KeyEvent.VK_ENTER);
 
-		
-		act.click(AddUser.checckBox).build().perform();
+		act.click(AddUserObj.checckBox).build().perform();
 
-		AddUser.userName.sendKeys("Franklin Rosevelt"); 
+		AddUserObj.userName.sendKeys("Franklin Rosevelt"); 
 		String password="IamHannah123$$GGhh";
-		AddUser.password.sendKeys(password);
-		AddUser.confirmPassword.sendKeys(password);
-		Select select1= new Select(AddUser.status);
+		AddUserObj.password.sendKeys(password);
+		AddUserObj.confirmPassword.sendKeys(password);
+		Select select1= new Select(AddUserObj.status);
 		select1.selectByVisibleText("Enabled");
-		AddUser.saveBtn.click();
+		AddUserObj.saveBtn.click();
 		
 	}
 

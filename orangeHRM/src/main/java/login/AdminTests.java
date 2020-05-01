@@ -9,6 +9,7 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.apache.xmlbeans.impl.xb.xsdschema.Public;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -20,8 +21,8 @@ import objectsRepository.AdminPageObjects;
 
 public class AdminTests {
 
-	public static XSSFRow row;
-	public static String datas = null;
+	public XSSFRow row;
+	public String datas;
 
 	@Test
 	public void adminPage(WebDriver driver) throws IOException, InterruptedException {
@@ -46,18 +47,9 @@ public class AdminTests {
 
 		select.selectByVisibleText("Admin");
 
-		File src= new File("D:\\Temp\\MFRPAddUser.xlsx");
-
-		FileInputStream getBookPath=new FileInputStream(src);
-
-		XSSFWorkbook excelBook= new XSSFWorkbook(getBookPath);
-
-		XSSFSheet sheet1=excelBook.getSheetAt(0);
-		Iterator<Row>  rowIterator = sheet1.iterator();
-
-		String name =getExcelData(rowIterator),uName=getExcelData(rowIterator),status=getExcelData(rowIterator),
-				passWord=getExcelData(rowIterator),confPass=getExcelData(rowIterator);
-
+		AdminTests forExcel=new AdminTests();
+		forExcel.setExcel(0);
+		
 		AdminPageObjects.empName.sendKeys(name);
 		AdminPageObjects.userName.sendKeys(uName);
 
@@ -70,13 +62,34 @@ public class AdminTests {
 		AdminPageObjects.cancelBtn.click();   //edit_AKA_save button
 		excelBook.close();
 	}
+	
+	public String name,uName,status,passWord,confPass;
+	public XSSFWorkbook excelBook;
+	
+	public void setExcel(int colInex) throws IOException {
+		File src= new File("D:\\Temp\\MFRPAddUser.xlsx");
+
+		FileInputStream getBookPath=new FileInputStream(src);
+
+		excelBook= new XSSFWorkbook(getBookPath);
+
+		XSSFSheet sheet1=excelBook.getSheetAt(0);
+		Iterator<Row>  rowIterator = sheet1.iterator();
+
+		name =getExcelData(rowIterator,colInex);
+		uName=getExcelData(rowIterator,colInex);
+		status=getExcelData(rowIterator,colInex);
+		passWord=getExcelData(rowIterator,colInex);
+		confPass=getExcelData(rowIterator,colInex);
+		excelBook.close();
+
+	}
 
 
-	public String getExcelData(Iterator<Row> rowIterator) throws IOException {
+	public String getExcelData(Iterator<Row> rowIterator, int colIndex) throws IOException {
 
-		row =(XSSFRow) rowIterator.next();
-		Iterator < Cell >  cellIterator = row.cellIterator();
-		Cell cell = cellIterator.next();
+		row = (XSSFRow) rowIterator.next();
+		Cell cell = row.getCell(colIndex);
 		datas=cell.getStringCellValue();
 		return datas;
 	}

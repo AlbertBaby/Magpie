@@ -4,7 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
-public class AddUser {
+public class AddUserObj {
 	
 	@FindBy(how =How.XPATH, using = "//*[@id=\"menu_pim_viewPimModule\"]/b")
 	public static WebElement adminPaneL;
@@ -39,5 +39,7 @@ public class AddUser {
 	@FindBy(id = "btnSave")
 	public static WebElement saveBtn;
 	
+	@FindBy(how =How.XPATH, using = "//b[text()=\"PIM\"]")
+	public static WebElement PIMbtn;
 	
 }
