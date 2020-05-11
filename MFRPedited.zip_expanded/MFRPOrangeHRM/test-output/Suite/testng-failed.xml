@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
+  <test thread-count="5" name="Test(failed)">
+    <classes>
+      <class name="pimmodule.Configuration">
+        <methods>
+          <include name="configMod"/>
+        </methods>
+      </class> <!-- pimmodule.Configuration -->
+      <class name="leave.Entitlements">
+        <methods>
+          <include name="entIcon"/>
+        </methods>
+      </class> <!-- leave.Entitlements -->
+      <class name="login.Login">
+        <methods>
+          <include name="login"/>
+        </methods>
+      </class> <!-- login.Login -->
+      <class name="performance.KPI">
+        <methods>
+          <include name="kpi"/>
+        </methods>
+      </class> <!-- performance.KPI -->
+      <class name="admin.Organization">
+        <methods>
+          <include name="Organize"/>
+        </methods>
+      </class> <!-- admin.Organization -->
+      <class name="leave.Assignleave">
+        <methods>
+          <include name="assLeave"/>
+        </methods>
+      </class> <!-- leave.Assignleave -->
+      <class name="performance.Trackers">
+        <methods>
+          <include name="trackers"/>
+        </methods>
+      </class> <!-- performance.Trackers -->
+      <class name="admin.Job">
+        <methods>
+          <include name="JobIcons"/>
+        </methods>
+      </class> <!-- admin.Job -->
+      <class name="recruitment.Vacancies">
+        <methods>
+          <include name="vacancies"/>
+        </methods>
+      </class> <!-- recruitment.Vacancies -->
+      <class name="admin.Nationality">
+        <methods>
+          <include name="NatIcons"/>
+        </methods>
+      </class> <!-- admin.Nationality -->
+      <class name="pimmodule.Reports">
+        <methods>
+          <include name="reportMod"/>
+        </methods>
+      </class> <!-- pimmodule.Reports -->
+      <class name="leave.Leavereports">
+        <methods>
+          <include name="leaveRep"/>
+        </methods>
+      </class> <!-- leave.Leavereports -->
+      <class name="performance.ManageReviews">
+        <methods>
+          <include name="manageReviews"/>
+        </methods>
+      </class> <!-- performance.ManageReviews -->
+      <class name="admin.AddUser">
+        <methods>
+          <include name="addUser"/>
+        </methods>
+      </class> <!-- admin.AddUser -->
+      <class name="leave.Configure">
+        <methods>
+          <include name="login"/>
+        </methods>
+      </class> <!-- leave.Configure -->
+      <class name="pimmodule.EmployeeList">
+        <methods>
+          <include name="empList"/>
+        </methods>
+      </class> <!-- pimmodule.EmployeeList -->
+      <class name="admin.Qualification">
+        <methods>
+          <include name="qualIcons"/>
+        </methods>
+      </class> <!-- admin.Qualification -->
+      <class name="leave.Leavelist">
+        <methods>
+          <include name="leaveList"/>
+        </methods>
+      </class> <!-- leave.Leavelist -->
+      <class name="recruitment.Candidates">
+        <methods>
+          <include name="employeeDetails"/>
+        </methods>
+      </class> <!-- recruitment.Candidates -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->

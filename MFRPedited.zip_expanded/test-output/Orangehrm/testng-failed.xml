@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" verbose="2" name="Failed suite [Orangehrm]" parallel="none">
+  <test name="Test MFRTproject(failed)" parallel="none">
+    <classes>
+      <class name="admin.Job">
+        <methods>
+          <include name="JobIcons"/>
+        </methods>
+      </class> <!-- admin.Job -->
+      <class name="pimmodule.EmployeeList">
+        <methods>
+          <include name="empList"/>
+        </methods>
+      </class> <!-- pimmodule.EmployeeList -->
+      <class name="leave.Leavelist">
+        <methods>
+          <include name="leaveList"/>
+        </methods>
+      </class> <!-- leave.Leavelist -->
+      <class name="performance.KPI">
+        <methods>
+          <include name="kpi"/>
+        </methods>
+      </class> <!-- performance.KPI -->
+      <class name="pimmodule.Reports">
+        <methods>
+          <include name="reportMod"/>
+        </methods>
+      </class> <!-- pimmodule.Reports -->
+      <class name="testsuites.CloseSite">
+        <methods>
+          <include name="closeBrowser"/>
+        </methods>
+      </class> <!-- testsuites.CloseSite -->
+      <class name="recruitment.Candidates">
+        <methods>
+          <include name="employeeDetails"/>
+        </methods>
+      </class> <!-- recruitment.Candidates -->
+      <class name="leave.Configure">
+        <methods>
+          <include name="login"/>
+        </methods>
+      </class> <!-- leave.Configure -->
+      <class name="pimmodule.Configuration">
+        <methods>
+          <include name="configMod"/>
+        </methods>
+      </class> <!-- pimmodule.Configuration -->
+      <class name="leave.Assignleave">
+        <methods>
+          <include name="assLeave"/>
+        </methods>
+      </class> <!-- leave.Assignleave -->
+      <class name="leave.Entitlements">
+        <methods>
+          <include name="entIcon"/>
+        </methods>
+      </class> <!-- leave.Entitlements -->
+    </classes>
+  </test> <!-- Test MFRTproject(failed) -->
+</suite> <!-- Failed suite [Orangehrm] -->
