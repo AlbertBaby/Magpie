@@ -1,10 +1,10 @@
-package com.example.hybridtestframework;
+package Elements;
 
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class MainPage {
+public class web {
 
     @FindBy(xpath = "")
     public static WebElement searchButton;

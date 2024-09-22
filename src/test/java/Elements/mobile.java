@@ -1,10 +1,9 @@
-package com.example.hybridtestframework;
+package Elements;
 
 import org.testng.annotations.*;
-import static org.testng.Assert.*;
 
-public class MainPageTest {
-    MainPage mainPage = new MainPage();
+public class mobile {
+    web mainPage = new web();
 
     @BeforeClass
     public static void setUpAll() {
@@ -18,7 +17,7 @@ public class MainPageTest {
 
     @Test
     public void search() {
-        MainPage.searchButton.click();
+        web.searchButton.click();
     }
 
     @Test
