@@ -1,2 +1,2 @@
 How to run
-`mdflkds`
+`mvn clean test -DsuiteXmlFile=src/test/resources/testng.xml`
