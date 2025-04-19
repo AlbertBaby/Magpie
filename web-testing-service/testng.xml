@@ -1,0 +1,9 @@
+
+// TestNG suite configuration
+<suite name="Cucumber Test Suite">
+    <test name="Cucumber Tests">
+        <classes>
+            <class name="com.web.testservice.Runner.CucumberTestRunner"/>
+        </classes>
+    </test>
+</suite>
