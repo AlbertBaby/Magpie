@@ -8,9 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
-public class LoginPage {
-    private WebDriver driver;
-    private WebDriverWait wait;
+public class LoginPage extends BasePage {
 
     @FindBy(id = "username")
     private WebElement usernameField;
@@ -24,14 +22,18 @@ public class LoginPage {
     @FindBy(id = "welcome-message")
     private WebElement welcomeMessage;
 
+    @FindBy(id = "error-message")
+    private WebElement errorMessage;
+
     public LoginPage(WebDriver driver) {
-        this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        super(driver);
         PageFactory.initElements(driver, this);
     }
 
     public void enterCredentials(String username, String password) {
-        wait.until(ExpectedConditions.visibilityOf(usernameField)).sendKeys(username);
+        wait.until(ExpectedConditions.visibilityOf(usernameField)).clear();
+        usernameField.sendKeys(username);
+        passwordField.clear();
         passwordField.sendKeys(password);
     }
 
@@ -40,6 +42,18 @@ public class LoginPage {
     }
 
     public boolean isLoginSuccessful() {
-        return wait.until(ExpectedConditions.visibilityOf(welcomeMessage)).isDisplayed();
+        try {
+            return wait.until(ExpectedConditions.visibilityOf(welcomeMessage)).isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public boolean isErrorMessageDisplayed() {
+        try {
+            return wait.until(ExpectedConditions.visibilityOf(errorMessage)).isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
     }
 }
